@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
+    SidebarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

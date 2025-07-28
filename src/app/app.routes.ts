@@ -10,5 +10,13 @@ export const routes: Routes = [
   { path: 'containers/add', component: ContainerFormComponent },
   { path: 'containers/edit/:serialNumber', component: ContainerFormComponent },
   { path: 'containers/view/:serialNumber', component: ContainerFormComponent },
-  { path: '**', redirectTo: 'containers' }
+  { path: 'movements', component: ContainerListComponent }, // Placeholder
+  { path: 'sales', component: ContainerListComponent }, // Placeholder
+  { path: 'rentals', component: ContainerListComponent }, // Placeholder
+  { path: 'modifications', component: ContainerListComponent }, // Placeholder
+  { path: 'third-parties', component: ContainerListComponent }, // Placeholder
+  { path: 'reports', component: ContainerListComponent }, // Placeholder
+  { path: 'master-data', component: ContainerListComponent }, // Placeholder
+  { path: 'configuration', component: ContainerListComponent }, // Placeholder
+  { path: '**', redirectTo: 'containers' } // Keep a wildcard for unmatched routes
 ];

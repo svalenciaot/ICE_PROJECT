@@ -1,0 +1,93 @@
+{
+  "containers": [
+    {
+      "serialNumber": "CON0012345",
+      "productCode": "PC001",
+      "size": 20,
+      "containerType": "Dry Van",
+      "condition": "NEW",
+      "isoCode": "22G1",
+      "status": "Available",
+      "yom": 2024,
+      "customsStatus": "Yes",
+      "ral": "RAL 5013",
+      "purchaseValue": 2500,
+      "currentValue": 2800,
+      "vendor": "Global Containers Inc.",
+      "owner": "Econtainers Global",
+      "entryDate": "2024-01-15T10:00:00.000Z",
+      "currentLocation": "Port of Miami",
+      "entryDateCurrentLocation": "2024-01-15T10:00:00.000Z",
+      "attachedDocuments": [
+        "doc1.pdf",
+        "photo_a.jpg"
+      ],
+      "id": "CON0012345"
+    },
+    {
+      "serialNumber": "CON0067890",
+      "productCode": "PC002",
+      "size": 40,
+      "containerType": "Reefer",
+      "condition": "IICL",
+      "isoCode": "45R1",
+      "status": "In transit",
+      "yom": 2020,
+      "customsStatus": "In process",
+      "ral": "RAL 9010",
+      "purchaseValue": 8000,
+      "currentValue": 7500,
+      "vendor": "Ocean Freight Solutions",
+      "owner": "Econtainers Global",
+      "entryDate": "2023-11-01T14:30:00.000Z",
+      "currentLocation": "Atlantic Ocean",
+      "entryDateCurrentLocation": "2024-05-20T08:00:00.000Z",
+      "attachedDocuments": [
+        "doc2.pdf"
+      ],
+      "id": "CON0067890"
+    },
+    {
+      "id": "ABCD1234567",
+      "serialNumber": "ABCD1234567",
+      "productCode": "20DV",
+      "size": 20,
+      "containerType": "Dry Van",
+      "condition": "NEW",
+      "isoCode": null,
+      "status": "Available",
+      "yom": null,
+      "customsStatus": null,
+      "ral": null,
+      "purchaseValue": 800,
+      "currentValue": 800,
+      "vendor": null,
+      "owner": "Econtainers Global",
+      "entryDate": "2025-06-13T00:00:00.000Z",
+      "currentLocation": "SIMCTG",
+      "entryDateCurrentLocation": "2025-06-13T00:00:00.000Z",
+      "attachedDocuments": []
+    },
+    {
+      "id": "ABCD9876543",
+      "serialNumber": "ABCD9876543",
+      "productCode": "1",
+      "size": 40,
+      "containerType": "Dry Van",
+      "condition": "NEW",
+      "isoCode": null,
+      "status": "Available",
+      "yom": 2007,
+      "customsStatus": "Yes",
+      "ral": null,
+      "purchaseValue": 300,
+      "currentValue": 300,
+      "vendor": "PEPE",
+      "owner": "ECON",
+      "entryDate": "2025-07-28T00:00:00.000Z",
+      "currentLocation": "DEPO1",
+      "entryDateCurrentLocation": "2025-07-28T00:00:00.000Z",
+      "attachedDocuments": []
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+<div class="container-form">
+  <h2>
+    @if (formMode === 'add') {
+      <span>Add New Container</span>
+    } @else if (formMode === 'view') {
+      <span>Container Details</span>
+    } @else if (formMode === 'edit') {
+      <span>Edit Container</span>
+    }
+  </h2>
+
+  @if (formMode === 'view') {
+    <div class="action-buttons">
+      <button (click)="onEditClick()" class="edit-button">Edit Container</button>
+      <button (click)="onDeleteClick()" class="delete-button">Delete Container</button>
+      <button (click)="onBackToList()" class="back-button">Back to List</button>
+    </div>
+  }
+
+  <form [formGroup]="containerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="serialNumber">Serial Number:</label>
+      <input id="serialNumber" type="text" formControlName="serialNumber">
+      @if (fc['serialNumber'].invalid && fc['serialNumber'].touched) {
+        <div class="error-message">
+          @if (fc['serialNumber'].errors?.['required']) {
+            <div>Serial Number is required.</div>
+          }
+          @if (fc['serialNumber'].errors?.['pattern']) {
+            <div>Invalid Serial Number format (e.g., ABCD1234567).</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="productCode">Product Code:</label>
+      <input id="productCode" type="text" formControlName="productCode">
+      @if (fc['productCode'].invalid && fc['productCode'].touched) {
+        <div class="error-message">
+          @if (fc['productCode'].errors?.['required']) {
+            <div>Product Code is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size (ft):</label>
+      <input id="size" type="number" formControlName="size">
+      @if (fc['size'].invalid && fc['size'].touched) {
+        <div class="error-message">
+          @if (fc['size'].errors?.['required']) {
+            <div>Size is required.</div>
+          }
+          @if (fc['size'].errors?.['min'] || fc['size'].errors?.['max']) {
+            <div>Size must be between 10 and 53.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="containerType">Container Type:</label>
+      <select id="containerType" formControlName="containerType">
+        <option value="">-- Select Type --</option>
+        @for (type of containerTypes; track type) {
+          <option [value]="type">{{ type }}</option>
+        }
+      </select>
+      @if (fc['containerType'].invalid && fc['containerType'].touched) {
+        <div class="error-message">
+          @if (fc['containerType'].errors?.['required']) {
+            <div>Container Type is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="condition">Condition:</label>
+      <select id="condition" formControlName="condition">
+        <option value="">-- Select Condition --</option>
+        @for (cond of conditions; track cond) {
+          <option [value]="cond">{{ cond }}</option>
+        }
+      </select>
+      @if (fc['condition'].invalid && fc['condition'].touched) {
+        <div class="error-message">
+          @if (fc['condition'].errors?.['required']) {
+            <div>Condition is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="isoCode">ISO Code:</label>
+      <input id="isoCode" type="text" formControlName="isoCode">
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status">
+        <option value="">-- Select Status --</option>
+        @for (stat of statuses; track stat) {
+          <option [value]="stat">{{ stat }}</option>
+        }
+      </select>
+      @if (fc['status'].invalid && fc['status'].touched) {
+        <div class="error-message">
+          @if (fc['status'].errors?.['required']) {
+            <div>Status is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="yom">Year of Manufacture (YOM):</label>
+      <input id="yom" type="number" formControlName="yom">
+      @if (fc['yom'].invalid && fc['yom'].touched) {
+        <div class="error-message">
+          @if (fc['yom'].errors?.['min'] || fc['yom'].errors?.['max']) {
+            <div>Invalid Year.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="customsStatus">Customs Status:</label>
+      <select id="customsStatus" formControlName="customsStatus">
+        <option value="">-- Select Status --</option>
+        @for (cStatus of customsStatuses; track cStatus) {
+          <option [value]="cStatus">{{ cStatus }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ral">RAL Color:</label>
+      <input id="ral" type="text" formControlName="ral">
+    </div>
+
+    <div class="form-group">
+      <label for="purchaseValue">Purchase Value:</label>
+      <input id="purchaseValue" type="number" formControlName="purchaseValue">
+      @if (fc['purchaseValue'].invalid && fc['purchaseValue'].touched) {
+        <div class="error-message">
+          @if (fc['purchaseValue'].errors?.['required']) {
+            <div>Purchase Value is required.</div>
+          }
+          @if (fc['purchaseValue'].errors?.['min']) {
+            <div>Purchase Value must be positive.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="currentValue">Current Value:</label>
+      <input id="currentValue" type="number" formControlName="currentValue">
+      @if (fc['currentValue'].invalid && fc['currentValue'].touched) {
+        <div class="error-message">
+          @if (fc['currentValue'].errors?.['required']) {
+            <div>Current Value is required.</div>
+          }
+          @if (fc['currentValue'].errors?.['min']) {
+            <div>Current Value must be positive.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="vendor">Vendor:</label>
+      <input id="vendor" type="text" formControlName="vendor">
+    </div>
+
+    <div class="form-group">
+      <label for="owner">Owner:</label>
+      <input id="owner" type="text" formControlName="owner">
+      @if (fc['owner'].invalid && fc['owner'].touched) {
+        <div class="error-message">
+          @if (fc['owner'].errors?.['required']) {
+            <div>Owner is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="entryDate">Entry Date:</label>
+      <input id="entryDate" type="date" formControlName="entryDate">
+      @if (fc['entryDate'].invalid && fc['entryDate'].touched) {
+        <div class="error-message">
+          @if (fc['entryDate'].errors?.['required']) {
+            <div>Entry Date is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="currentLocation">Current Location:</label>
+      <input id="currentLocation" type="text" formControlName="currentLocation">
+      @if (fc['currentLocation'].invalid && fc['currentLocation'].touched) {
+        <div class="error-message">
+          @if (fc['currentLocation'].errors?.['required']) {
+            <div>Current Location is required.</div>
+          }
+        </div>
+      }
+    </div>
+
+    @if (formMode !== 'add') {
+      <div class="form-group">
+        <label for="entryDateCurrentLocation">Entry Date Current Location:</label>
+        <input id="entryDateCurrentLocation" type="date" formControlName="entryDateCurrentLocation">
+        @if (fc['entryDateCurrentLocation'].invalid && fc['entryDateCurrentLocation'].touched) {
+          <div class="error-message">
+            @if (fc['entryDateCurrentLocation'].errors?.['required']) {
+              <div>Entry Date Current Location is required.</div>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <div class="form-group">
+      <label for="attachedDocuments">Attached Documents (comma separated URLs):</label>
+      <input id="attachedDocuments" type="text" formControlName="attachedDocuments">
+      <small class="hint">Enter URLs separated by commas if multiple.</small>
+    </div>
+
+    @if (formMode !== 'view') {
+      <div class="form-actions">
+        <button type="submit" [disabled]="!containerForm.valid">
+          {{ formMode === 'edit' ? 'Update Container' : 'Add Container' }}
+        </button>
+        @if (formMode === 'edit') {
+          <button type="button" class="cancel-button" (click)="onCancelEdit()">
+            Cancel
+          </button>
+        }
+      </div>
+    }
+
+  </form>
+</div>
